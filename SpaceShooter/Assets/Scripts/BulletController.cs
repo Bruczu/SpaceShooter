@@ -7,6 +7,7 @@ public class PLayerController : MonoBehaviour
     public float moveSpeed = 3f;
     public Rigidbody2D rb;
 
+    public float destroyValue = 6f;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +22,14 @@ public class PLayerController : MonoBehaviour
     }
     void DestroyAfterLeftScreen()
     {
-        if (transform.position.y > 6f)
+        if (transform.position.y > destroyValue)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
     }
 }

@@ -11,12 +11,15 @@ public class PlayerController : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform gunEndPosition;
+
+    public float fireRate = 0.2f;
+    private float timeSinceLastAction = 0f;
     void Start()
     {
-        
+
     }
 
-    
+
     void Update()
     {
         PlayerMovement();
@@ -30,12 +33,12 @@ public class PlayerController : MonoBehaviour
     void PlayerMovement()
     {
         float horizontalImputValue = Input.GetAxis("Horizontal");
-        Vector2 movementVector = new Vector2 (horizontalImputValue, 0) * moveSpeed * Time.deltaTime;
+        Vector2 movementVector = new Vector2(horizontalImputValue, 0) * moveSpeed * Time.deltaTime;
         transform.Translate(movementVector);
 
         if (transform.position.x > maxXvalue.position.x)
         {
-            transform.position = new Vector2(maxXvalue.position.x, transform.position.y); 
+            transform.position = new Vector2(maxXvalue.position.x, transform.position.y);
         }
 
         if (transform.position.x < minXvalue.position.x)
@@ -45,6 +48,12 @@ public class PlayerController : MonoBehaviour
     }
     void Shoot()
     {
-        Instantiate(bulletPrefab, gunEndPosition.position, Quaternion.identity);
+        timeSinceLastAction += Time.deltaTime;
+
+        if (timeSinceLastAction >= fireRate)
+        {
+            Instantiate(bulletPrefab, gunEndPosition.position, Quaternion.identity);
+            timeSinceLastAction = 0;
+        }
     }
 }

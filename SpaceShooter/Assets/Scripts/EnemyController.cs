@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
-    public float speed = 2f;
+    //public float speed = 2f;
 
-    public Transform playertransform;
+    //public Transform playertransform;
     // Start is called before the first frame update
     void Start()
     {
