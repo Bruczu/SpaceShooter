@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
 
     public Transform minXvalue;
     public Transform maxXvalue;
+
+    public GameObject bulletPrefab;
+    public Transform gunEndPosition;
     void Start()
     {
         
@@ -17,19 +20,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerMovement();
-    }
 
-    void Shoot()
-    {
-        /*timeSinceLastAction += Time.deltaTime;
-
-        if(timeSinceLastAction >= fireRate)
+        if (Input.GetKey(KeyCode.Space))
         {
-
-            Instantiate(bulletPrefab
-        }*/
-        //
+            Shoot();
+        }
     }
+
     void PlayerMovement()
     {
         float horizontalImputValue = Input.GetAxis("Horizontal");
@@ -45,5 +42,9 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector2(minXvalue.position.x, transform.position.y);
         }
+    }
+    void Shoot()
+    {
+        Instantiate(bulletPrefab, gunEndPosition.position, Quaternion.identity);
     }
 }
