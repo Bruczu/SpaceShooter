@@ -6,10 +6,10 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
 
-    public float spawnRate = 2f;
+    public float spawnRate = 3f;
     
-    public float minXAxisSpawnValue = -8f;
-    public float maxXAxisSpawnValue = 8f;
+    public float minXAxisSpawnValue;
+    public float maxXAxisSpawnValue;
     //public Transform minXSpawnTransform
 
     public float yAxisSpawnValue = 4f;

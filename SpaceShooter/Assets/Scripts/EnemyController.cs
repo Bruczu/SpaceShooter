@@ -5,11 +5,11 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
-    public float speed = 2f;
+    public float speed = 1f;
 
     public Transform playertransform;
 
-    public float fireRate = 0.2f;
+    public float fireRate = 0.5f;
     private float timeSinceLastAction = 0f;
     public GameObject bulletPrefab;
     public Transform enemyGunEnd;
@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
         if (timeSinceLastAction >= fireRate)
         {
             Instantiate(bulletPrefab, enemyGunEnd.position, Quaternion.identity);
-            timeSinceLastAction = 0;
+            timeSinceLastAction = 0f;
         }
     }
 }

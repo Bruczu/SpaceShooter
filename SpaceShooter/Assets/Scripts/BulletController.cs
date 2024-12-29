@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PLayerController : MonoBehaviour
 {
-    public float moveSpeed = 3f;
+    public float moveSpeed = 5f;
     public Rigidbody2D rb;
 
     public float destroyValue = 6f;

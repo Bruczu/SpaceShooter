@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform gunEndPosition;
 
-    public float fireRate = 0.2f;
+    public float fireRate = 0.5f;
     private float timeSinceLastAction = 0f;
     void Start()
     {
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         if (timeSinceLastAction >= fireRate)
         {
             Instantiate(bulletPrefab, gunEndPosition.position, Quaternion.identity);
-            timeSinceLastAction = 0;
+            timeSinceLastAction = 0f;
         }
     }
 }
