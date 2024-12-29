@@ -40,7 +40,7 @@ public class EnemyBulletController : MonoBehaviour
             GameManager.playerController.HittedByBullet();
             Destroy(gameObject);
         }
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Bullet")
         {
             Destroy(gameObject);
         }

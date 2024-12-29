@@ -29,9 +29,11 @@ public class EnemyController : MonoBehaviour
     {
         transform.Translate(Vector2.down * speed * Time.deltaTime);
         if (transform.position.y > -2)
+        {
             Shoot();
+        }
 
-        if (transform.position.y < -5.5f)
+        if (transform.position.y < -6f)
         {
             GameManager.playerController.HittedByBullet();
             Destroy(gameObject);

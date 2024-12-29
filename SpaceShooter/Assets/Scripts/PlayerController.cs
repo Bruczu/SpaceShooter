@@ -60,7 +60,6 @@ public class PlayerController : MonoBehaviour
         if (timeSinceLastAction >= fireRate)
         {
             Instantiate(bulletPrefab, gunEndPosition.position, Quaternion.identity);
-            Debug.Log(gunEndPosition.position);
             timeSinceLastAction = 0f;
         }
     }
