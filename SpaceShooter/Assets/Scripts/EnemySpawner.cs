@@ -16,7 +16,9 @@ public class EnemySpawner : MonoBehaviour
 
     private float timeSinceLastAction = 0f;
 
-    // Start is called before the first frame update
+    public List<GameObject> spawnedEnemies = new List<GameObject>();
+
+
     void Start()
     {
         
@@ -28,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
         
         timeSinceLastAction += Time.deltaTime;
         //timeSinceLastAction = timeSinceLastAction + Time.deltaTime;
+        //ctrl+RR
 
         if (timeSinceLastAction >= spawnRate)
         {
@@ -39,8 +42,10 @@ public class EnemySpawner : MonoBehaviour
     {
         float xPosition = Random.Range(minXAxisSpawnValue, maxXAxisSpawnValue);
         Vector2 spawnPosition = new Vector2(xPosition, yAxisSpawnValue);
-        Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity, this.transform);
 
         timeSinceLastAction = 0f;
+
+        spawnedEnemies.Add(spawnedEnemy);
     }
 }

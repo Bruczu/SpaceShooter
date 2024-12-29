@@ -5,25 +5,45 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
-    //public float speed = 2f;
+    public float speed = 2f;
 
-    //public Transform playertransform;
+    public Transform playertransform;
+
+    public float fireRate = 0.2f;
+    private float timeSinceLastAction = 0f;
+    public GameObject bulletPrefab;
+    public Transform enemyGunEnd;
+
     // Start is called before the first frame update
     void Start()
     {
-       
+        //transform.Translate(Vector2.down * speed * Time.deltaTime);
+        GameObject playerGameObject = GameObject.Find("Player");
+        playertransform = playerGameObject.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(Vector2.down * speed * Time.deltaTime);
+
+        Shoot();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
             Destroy(gameObject);
+        }
+    }
+    void Shoot()
+    {
+        timeSinceLastAction += Time.deltaTime;
+
+        if (timeSinceLastAction >= fireRate)
+        {
+            Instantiate(bulletPrefab, enemyGunEnd.position, Quaternion.identity);
+            timeSinceLastAction = 0;
         }
     }
 }
