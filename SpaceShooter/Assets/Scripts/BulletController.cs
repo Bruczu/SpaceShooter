@@ -8,21 +8,23 @@ public class PLayerController : MonoBehaviour
     public Rigidbody2D rb;
 
     public float destroyValue = 6f;
-    // Start is called before the first frame update
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector3.up * moveSpeed;
+        transform.Translate(Vector2.up * moveSpeed);
+        //rb.velocity = Vector3.up * moveSpeed;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
+        transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
         DestroyAfterLeftScreen();
     }
     void DestroyAfterLeftScreen()
     {
-        if (transform.position.y > destroyValue)
+        if (transform.position.y >= destroyValue)
         {
             Destroy(gameObject);
         }

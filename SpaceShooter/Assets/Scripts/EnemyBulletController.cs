@@ -11,30 +11,35 @@ public class EnemyBulletController : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    private Vector3 direction;
+
     public float destroyValue = -6f;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
-        rb.velocity = (playerTransform.position - transform.position).normalized * speed;
+        //rb.velocity = (playerTransform.position - transform.position).normalized * speed;
+        direction = (playerTransform.position - transform.position).normalized;
     }
 
-    //Update is called once per frame
-    /*void Update()
+    void Update()
     {
-        DestroyAfterLeftScreen();
-    }
-    void DestroyAfterLeftScreen()
-    {
-        if (transform.position.y < destroyValue)
+        transform.Translate(direction * speed * Time.deltaTime);
+
+        if ((transform.position.y < -6) || (transform.position.x < -10) || (transform.position.x > 10))
         {
             Destroy(gameObject);
         }
     }
-    */
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "Player")
+        {
+            GameManager.playerController.HittedByBullet();
+            Destroy(gameObject);
+        }
         if (collision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
