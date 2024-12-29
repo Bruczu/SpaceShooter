@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
         if (hp <= 0)
         {
-            Debug.Log("Player nie ¿yje");
+            Debug.Log("koniec gry");
         }
     }
 

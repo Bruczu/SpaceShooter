@@ -13,7 +13,7 @@ public class EnemyBulletController : MonoBehaviour
 
     private Vector3 direction;
 
-    public float destroyValue = -6f;
+    //public float destroyValue = -6f;
     // Start is called before the first frame update
     void Start()
     {

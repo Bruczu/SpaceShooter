@@ -36,7 +36,7 @@ public class EnemyController : MonoBehaviour
             GameManager.playerController.HittedByBullet();
             Destroy(gameObject);
         }
-        Shoot();
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -58,7 +58,7 @@ public class EnemyController : MonoBehaviour
         if (timeSinceLastAction >= fireRate)
         {
             Instantiate(bulletPrefab, enemyGunEnd.position, Quaternion.identity);
-            timeSinceLastAction = 0f;
+            timeSinceLastAction = 0;
         }
     }
 }

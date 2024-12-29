@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PLayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 3f;
     public Rigidbody2D rb;
 
     public float destroyValue = 6f;
@@ -12,7 +12,7 @@ public class PLayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        transform.Translate(Vector2.up * moveSpeed);
+        //transform.Translate(Vector2.up * moveSpeed);
         //rb.velocity = Vector3.up * moveSpeed;
     }
 
@@ -24,7 +24,7 @@ public class PLayerController : MonoBehaviour
     }
     void DestroyAfterLeftScreen()
     {
-        if (transform.position.y >= destroyValue)
+        if (transform.position.y > destroyValue)
         {
             Destroy(gameObject);
         }
