@@ -13,8 +13,10 @@ public class EnemyBulletController : MonoBehaviour
 
     private Vector3 direction;
 
-    //public float destroyValue = -6f;
-    // Start is called before the first frame update
+    public static PlayerController playerController;
+
+    //public GameObject bulletExplosionEffect;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -42,6 +44,8 @@ public class EnemyBulletController : MonoBehaviour
         }
         if (collision.gameObject.tag == "Bullet")
         {
+            //Instantiate(bulletExplosionEffect, transform.position, Quaternion.identity);
+            playerController.points = playerController.points + 20;
             Destroy(gameObject);
         }
     }

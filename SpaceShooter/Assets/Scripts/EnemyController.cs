@@ -11,10 +11,15 @@ public class EnemyController : MonoBehaviour
 
     public float fireRate = 0.5f;
     private float timeSinceLastAction = 0f;
+
     public GameObject bulletPrefab;
     public Transform enemyGunEnd;
 
-    // Start is called before the first frame update
+    public static PlayerController playerController;
+
+    //public GameObject explosionEffectPrefab;
+
+    
     void Start()
     {
         //transform.Translate(Vector2.down * speed * Time.deltaTime);
@@ -24,7 +29,7 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         transform.Translate(Vector2.down * speed * Time.deltaTime);
@@ -44,7 +49,10 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
+            //Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+            playerController.points = playerController.points + 100;
             Destroy(gameObject);
+            
         }
 
         if(collision.gameObject.tag == "Player")

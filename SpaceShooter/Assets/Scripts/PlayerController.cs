@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public int hp = 10;
+    public int hp = 5;
+    public int points;
 
     public float moveSpeed = 2f;
 
@@ -19,6 +20,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         GameManager.playerController = this;
+        EnemyController.playerController = this;
+        EnemyBulletController.playerController = this;
     }
 
 
@@ -33,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
         if (hp <= 0)
         {
+            //Application.Quit();
             Debug.Log("koniec gry");
         }
     }
@@ -65,7 +69,8 @@ public class PlayerController : MonoBehaviour
     }
     public void HittedByBullet()
     {
+        GameManager.uiManager.DisableHpSprite(hp);
         hp -= 1;
-        Debug.Log("Zosta³eœ trafiony. HP: "+ hp);
+        Debug.Log("Zosta³eœ trafiony.");
     }
 }
