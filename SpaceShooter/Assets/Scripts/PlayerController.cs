@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
         {
             //Application.Quit();
             Debug.Log("koniec gry");
+            GoLostMenu();
         }
     }
 
@@ -73,4 +75,10 @@ public class PlayerController : MonoBehaviour
         hp -= 1;
         Debug.Log("Zosta³eœ trafiony.");
     }
+    public static void GoLostMenu()
+    {
+        SceneManager.LoadScene("LostMenu", LoadSceneMode.Single);
+    }
+        
+
 }
