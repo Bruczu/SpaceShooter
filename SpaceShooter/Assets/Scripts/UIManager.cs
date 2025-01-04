@@ -18,12 +18,10 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI text;
     public EndGameController endGameController;
 
-
     void Start()
     {
         GameManager.uiManager = this;
     }
-
 
     void Update()
     {

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-
     public float speed = 1f;
+
+    public static PlayerController playerController;
 
     public Transform playertransform;
 
@@ -15,11 +16,8 @@ public class EnemyController : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform enemyGunEnd;
 
-    public static PlayerController playerController;
-
     //public GameObject explosionEffectPrefab;
 
-    
     void Start()
     {
         //transform.Translate(Vector2.down * speed * Time.deltaTime);
@@ -28,7 +26,6 @@ public class EnemyController : MonoBehaviour
 
 
     }
-
 
     void Update()
     {
@@ -51,8 +48,7 @@ public class EnemyController : MonoBehaviour
         {
             //Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
             playerController.points = playerController.points + 100;
-            Destroy(gameObject);
-            
+            Destroy(gameObject); 
         }
 
         if(collision.gameObject.tag == "Player")

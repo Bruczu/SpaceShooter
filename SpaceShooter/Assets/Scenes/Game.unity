@@ -179,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: / 1000
+  m_text: / 2000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 910818947}
-  pointsToGet: 1000
+  pointsToGet: 2000
 --- !u!4 &401848738
 Transform:
   m_ObjectHideFlags: 0
@@ -371,7 +371,7 @@ Transform:
   m_GameObject: {fileID: 401848736}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -242, y: 1246, z: -2.2314026}
+  m_LocalPosition: {x: -11.08, y: 6.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1460,6 +1460,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 4339773589117361396, guid: 27974245744875848b4c48289d3c8c0d, type: 3}
   spawnRate: 2
+  meteorPrefab: {fileID: 4339773589117361396, guid: 5845db9f866be9348b3adee873376fa1, type: 3}
+  spawnRate2: 6
   minXAxisSpawnValue: -7
   maxXAxisSpawnValue: 7
   yAxisSpawnValue: 4

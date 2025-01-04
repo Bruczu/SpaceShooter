@@ -16,7 +16,6 @@ public class PLayerController : MonoBehaviour
         //rb.velocity = Vector3.up * moveSpeed;
     }
 
-    
     void Update()
     {
         transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);

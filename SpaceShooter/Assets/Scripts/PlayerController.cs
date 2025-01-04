@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.playerController = this;
         EnemyController.playerController = this;
+        MeteorController.playerController = this;
         EnemyBulletController.playerController = this;
     }
 
