@@ -9,6 +9,8 @@ public class MeteorController : MonoBehaviour
 
     public static PlayerController playerController;
 
+    public GameObject explosionEffectPrefab;
+
     void Update()
     {
         transform.Translate(Vector2.down * speed * Time.deltaTime);
@@ -24,7 +26,7 @@ public class MeteorController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            //Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+            Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
             playerController.points = playerController.points + 50;
             GameManager.enemySpawner.enemy_destroyed();
             Destroy(gameObject);

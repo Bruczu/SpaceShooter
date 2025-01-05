@@ -10,7 +10,7 @@ public class EnemyBulletController : MonoBehaviour
     public Rigidbody2D rb;
     private Vector3 direction;
     public static PlayerController playerController;
-    //public GameObject bulletExplosionEffect;
+    public GameObject bulletExplosionEffect;
 
     void Start()
     {
@@ -34,12 +34,12 @@ public class EnemyBulletController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            //GameManager.playerController.HittedByBullet();
-            //Destroy(gameObject);
+            GameManager.playerController.HittedByBullet();
+            Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Bullet")
         {
-            //Instantiate(bulletExplosionEffect, transform.position, Quaternion.identity);
+            Instantiate(bulletExplosionEffect, transform.position, Quaternion.identity);
             playerController.points = playerController.points + 10;
             Destroy(gameObject);
         }

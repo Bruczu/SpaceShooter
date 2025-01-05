@@ -164,3 +164,4 @@ MonoBehaviour:
   speed: 3
   playerTransform: {fileID: 0}
   rb: {fileID: 0}
+  bulletExplosionEffect: {fileID: 8352313685346390408, guid: 33ca707b0cc50ea40a8d21460b127a54, type: 3}

@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform enemyGunEnd;
 
-    //public GameObject explosionEffectPrefab;
+    public GameObject explosionEffectPrefab;
 
     void Start()
     {
@@ -46,7 +46,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            //Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+            Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
             playerController.points = playerController.points + 100;
             GameManager.enemySpawner.enemy_destroyed();
             Destroy(gameObject);
@@ -54,6 +54,7 @@ public class EnemyController : MonoBehaviour
 
         if(collision.gameObject.tag == "Player")
         {
+            Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
             GameManager.playerController.HittedByBullet();
             Destroy(gameObject);
         }
