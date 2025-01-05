@@ -48,7 +48,8 @@ public class EnemyController : MonoBehaviour
         {
             //Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
             playerController.points = playerController.points + 100;
-            Destroy(gameObject); 
+            GameManager.enemySpawner.enemy_destroyed();
+            Destroy(gameObject);
         }
 
         if(collision.gameObject.tag == "Player")

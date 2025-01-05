@@ -21,6 +21,16 @@ public class EnemySpawner : MonoBehaviour
 
     public List<GameObject> spawnedEnemies = new List<GameObject>();
 
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+
+    void Start()
+    {
+        GameManager.enemySpawner = this;
+        audioSource = GetComponent<AudioSource>();
+    }
+
+
     void Update()
     {
         
@@ -60,5 +70,9 @@ public class EnemySpawner : MonoBehaviour
         timeSinceLastAction2 = 0f;
 
         spawnedEnemies.Add(spawnedEnemy);
+    }
+    public void enemy_destroyed()
+    {
+        audioSource.PlayOneShot(audioClip);
     }
 }

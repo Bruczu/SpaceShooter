@@ -18,8 +18,12 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI text;
     public EndGameController endGameController;
 
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         GameManager.uiManager = this;
     }
 
@@ -30,6 +34,7 @@ public class UIManager : MonoBehaviour
 
     public void DisableHpSprite(int value)
     {
+        audioSource.PlayOneShot(audioClip);
         hpPointsList[value-1].SetActive(false);
     }
 }

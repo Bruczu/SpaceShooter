@@ -26,8 +26,8 @@ public class MeteorController : MonoBehaviour
         {
             //Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
             playerController.points = playerController.points + 50;
+            GameManager.enemySpawner.enemy_destroyed();
             Destroy(gameObject);
-
         }
 
         if (collision.gameObject.tag == "Player")

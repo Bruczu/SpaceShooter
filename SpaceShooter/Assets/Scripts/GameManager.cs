@@ -6,4 +6,6 @@ public static class GameManager
 { 
     public static PlayerController playerController;
     public static UIManager uiManager;
+
+    public static EnemySpawner enemySpawner;
 }

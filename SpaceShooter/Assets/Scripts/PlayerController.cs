@@ -18,12 +18,18 @@ public class PlayerController : MonoBehaviour
 
     public float fireRate = 0.2f;
     private float timeSinceLastAction = 0f;
+
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+
     void Start()
     {
         GameManager.playerController = this;
         EnemyController.playerController = this;
         MeteorController.playerController = this;
         EnemyBulletController.playerController = this;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -67,6 +73,7 @@ public class PlayerController : MonoBehaviour
         if (timeSinceLastAction >= fireRate)
         {
             Instantiate(bulletPrefab, gunEndPosition.position, Quaternion.identity);
+            audioSource.PlayOneShot(audioClip);
             timeSinceLastAction = 0f;
         }
     }
@@ -80,6 +87,4 @@ public class PlayerController : MonoBehaviour
     {
         SceneManager.LoadScene("LostMenu", LoadSceneMode.Single);
     }
-        
-
 }
